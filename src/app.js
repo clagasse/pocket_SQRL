@@ -152,12 +152,12 @@
   // Render Page 1: Command Quick Reference
   function renderQuickRefPage(toc, main) {
     toc.innerHTML = `
-      <div class="toc-heading">Quick Reference</div>
+      <div class="toc-heading">🐿️ The Acorn Stash</div>
       <ul class="toc-list">
         <li>
           <a class="toc-link" href="#how-sql-runs">
-            <span class="toc-num">⚙️</span>
-            <span>How SQL Reads a Query</span>
+            <span class="toc-num">🌰</span>
+            <span>In a Nutshell: Execution Order</span>
           </a>
         </li>
         ${DATA.sections.map((sec) => `
@@ -170,7 +170,7 @@
         `).join('')}
       </ul>
 
-      <div class="toc-heading" style="margin-top: 1.5rem;">R Comparison</div>
+      <div class="toc-heading" style="margin-top: 1.5rem;">🥜 R Comparison</div>
       <div style="padding:0 0.3rem; margin-bottom: 1.25rem;">
         <button class="theme-btn r-toggle-btn ${state.showRCompare ? 'active' : ''}" style="width:100%; text-align:left;"
                 onclick="window.toggleRCompare()">
@@ -178,11 +178,11 @@
         </button>
       </div>
 
-      <div class="toc-heading">Dialect Filter</div>
+      <div class="toc-heading">🌲 Dialect Filter</div>
       <div style="display:flex; flex-direction:column; gap:0.3rem; padding:0 0.3rem;">
         <button class="theme-btn" style="text-align:left; border-color:${state.dialectFilter === 'all' ? 'var(--accent)' : 'var(--border)'};"
                 onclick="window.setDialectFilter('all')">
-          ✓ Show All Commands
+          ✓ Whole Stash (All)
         </button>
         <button class="theme-btn" style="text-align:left; border-color:${state.dialectFilter === 'standard' ? 'var(--accent)' : 'var(--border)'};"
                 onclick="window.setDialectFilter('standard')">
@@ -204,7 +204,7 @@
 
     const parsingHtml = !q ? `
       <section id="how-sql-runs" class="parsing-card">
-        <h1 class="parsing-title">⚙️ How SQL Reads &amp; Runs a Query (Execution Order)</h1>
+        <h1 class="parsing-title">🌰 SQL in a Nutshell: How SQL Reads &amp; Runs a Query (1 → 8)</h1>
         <p class="parsing-subtitle">
           You write a SQL query starting with <code>SELECT</code>, but the database actually runs the clauses in the <strong>1 → 8 order below</strong> (which is the exact same top-to-bottom order as an R <code>tidyverse</code> pipe!). Click any step to see why it matters.
         </p>
@@ -223,11 +223,11 @@
 
         <div class="step-detail-box">
           <div class="step-detail-title">
-            <span>Step ${step.step}: ${step.clause} <span style="font-weight:400; color:var(--text-dim); font-size:0.82rem;">(${step.writtenOrder} in SQL)</span></span>
+            <span>🌰 Step ${step.step}: ${step.clause} <span style="font-weight:400; color:var(--text-dim); font-size:0.82rem;">(${step.writtenOrder} in SQL)</span></span>
             <span class="dialect-tag tag-general" style="font-family:var(--font-mono);">R pipe: ${step.rPipe}</span>
           </div>
           <div>${step.shortDesc}</div>
-          <div class="step-detail-why">💡 <strong>Why this matters:</strong> ${step.whyItMatters}</div>
+          <div class="step-detail-why">🥜 <strong>Why this matters:</strong> ${step.whyItMatters}</div>
         </div>
       </section>
     ` : '';
@@ -284,7 +284,7 @@
                   <div class="cmd-code-wrap">
                     <div class="code-lang-header">
                       <span>SQL</span>
-                      <button class="copy-btn" onclick="window.copyCode('${encodedSql}')">Copy</button>
+                      <button class="copy-btn" onclick="window.copyCode('${encodedSql}')">🌰 Copy</button>
                     </div>
                     <pre class="cmd-pre"><code>${highlightCode(item.code)}</code></pre>
                   </div>
@@ -293,7 +293,7 @@
                     <div class="cmd-code-wrap r-box">
                       <div class="code-lang-header r-header">
                         <span>R (tidyverse / dplyr)</span>
-                        <button class="copy-btn" onclick="window.copyCode('${encodedR}')">Copy</button>
+                        <button class="copy-btn" onclick="window.copyCode('${encodedR}')">🌰 Copy</button>
                       </div>
                       <pre class="cmd-pre"><code>${highlightCode(item.rCode)}</code></pre>
                     </div>
@@ -306,7 +306,7 @@
       `;
     }).join('');
 
-    main.innerHTML = parsingHtml + (sectionsHtml || `<div class="parsing-card"><p>No commands matched <strong>"${state.searchQuery}"</strong>.</p></div>`);
+    main.innerHTML = parsingHtml + (sectionsHtml || `<div class="parsing-card"><p>🐿️ No acorns found in the stash matching <strong>"${state.searchQuery}"</strong>. Try foraging for another keyword!</p></div>`);
   }
 
   // Generic Renderer for Structured Guide Pages (Page 2: Writing & Structuring SQL, Page 3: R Connections & DB Tools)
@@ -396,7 +396,7 @@
                 <div class="cmd-code-wrap ${isLeftR ? 'r-box' : ''}">
                   <div class="code-lang-header ${isLeftR ? 'r-header' : ''}">
                     <span>${sec.leftLabel}</span>
-                    <button class="copy-btn" onclick="window.copyCode('${encLeft}')">Copy</button>
+                    <button class="copy-btn" onclick="window.copyCode('${encLeft}')">🌰 Copy</button>
                   </div>
                   <pre class="cmd-pre"><code>${highlightCode(sec.leftCode)}</code></pre>
                 </div>
@@ -404,7 +404,7 @@
                 <div class="cmd-code-wrap ${isRightR ? 'r-box' : ''}">
                   <div class="code-lang-header ${isRightR ? 'r-header' : ''}">
                     <span>${sec.rightLabel}</span>
-                    <button class="copy-btn" onclick="window.copyCode('${encRight}')">Copy</button>
+                    <button class="copy-btn" onclick="window.copyCode('${encRight}')">🌰 Copy</button>
                   </div>
                   <pre class="cmd-pre"><code>${highlightCode(sec.rightCode)}</code></pre>
                 </div>
@@ -423,21 +423,21 @@
 
     if (state.page === 'overview') {
       renderStructuredGuidePage(toc, main, {
-        tocTitle: 'Writing & Structuring SQL',
+        tocTitle: '📘 Writing & Structuring SQL',
         items: DATA.overviewGuide,
         heroTitle: '📘 How to Write, String Together & Structure SQL Code',
-        heroSubtitle: 'A practical overview of how SQL workflows fit together: translating from R <code>tidyverse</code> mental models, chaining multi-step queries (CTEs vs. Temp Tables), and choosing between Tables, Views, and Stored Procedures.',
-        helpTitle: 'Working in R?',
-        helpText: 'Check out the <strong>🔌 R Connections &amp; DB Tools</strong> tab above for copy-paste R connection recipes and data management tools.'
+        heroSubtitle: 'Squirreling away clean query habits: translating from R <code>tidyverse</code> mental models, chaining multi-step queries (CTEs vs. Temp Tables), and choosing between Tables, Views, and Stored Procedures.',
+        helpTitle: '🐿️ Working in R?',
+        helpText: 'Check out the <strong>🐿️ R Connections &amp; DB Tools</strong> tab above for copy-paste R connection recipes and database tools.'
       });
     } else if (state.page === 'rtools') {
       renderStructuredGuidePage(toc, main, {
-        tocTitle: 'R Connections & DB Tools',
+        tocTitle: '🐿️ R Connections & DB Tools',
         items: DATA.rToolsGuide,
-        heroTitle: '🔌 Connecting to Databases in R & Data Management Tools',
+        heroTitle: '🐿️ Connecting to Databases in R & Data Management Tools',
         heroSubtitle: 'How to connect R to SQL Server, Oracle, SQLite, and DuckDB; explore unfamiliar schemas; parameterize <code>.sql</code> files with <code>glue_sql()</code>; upload data safely inside transactions; and choose the right SQL client tools.',
-        helpTitle: 'Quick Tip',
-        helpText: 'Store database usernames and passwords in your <code>.Renviron</code> file (<code>usethis::edit_r_environ()</code>) and read them with <code>Sys.getenv()</code> so credentials are never committed to Git.'
+        helpTitle: '🥜 Quick Tip',
+        helpText: 'Squirrel away your database usernames and passwords in your <code>.Renviron</code> file (<code>usethis::edit_r_environ()</code>) and read them with <code>Sys.getenv()</code> so credentials are never committed to Git.'
       });
     } else {
       renderQuickRefPage(toc, main);

@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pocket SQRL — SQL Quick Reference &amp; R Lookup</title>
+  <title>Pocket SQRL 🐿️ — SQL Quick Reference &amp; R Lookup</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐿️</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -12,33 +13,33 @@
 <body>
   <!-- Sticky Top Navigation Bar -->
   <header class="topbar">
-    <div class="brand" onclick="window.setPage('quickref')" title="Pocket SQRL: SQL Quick Reference &amp; R Lookup">
+    <div class="brand" onclick="window.setPage('quickref')" title="Pocket SQRL: Squirreling away the SQL &amp; R commands you always forget">
       <span class="brand-badge">🐿️ SQ<span class="brand-r">R</span>L</span>
       <div class="brand-text">
-        <span class="brand-main">Pocket SQRL</span>
+        <span class="brand-main">Pocket SQRL 🌰</span>
         <span class="brand-sub"><strong>S</strong>QL <strong>Q</strong>uick <strong>R</strong>eference &amp; <strong>L</strong>ookup (SQL + R)</span>
       </div>
     </div>
 
     <div class="page-tabs">
       <button id="page-btn-quickref" class="page-tab-btn active" onclick="window.setPage('quickref')">
-        ⚡ Command Quick Reference
+        🌰 Command Quick Reference
       </button>
       <button id="page-btn-overview" class="page-tab-btn" onclick="window.setPage('overview')">
         📘 Writing &amp; Structuring SQL
       </button>
       <button id="page-btn-rtools" class="page-tab-btn" onclick="window.setPage('rtools')">
-        🔌 R Connections &amp; DB Tools
+        🐿️ R Connections &amp; DB Tools
       </button>
     </div>
 
     <div class="search-box">
-      <span class="search-icon">🔍</span>
+      <span class="search-icon">🥜</span>
       <input
         id="search-input"
         type="search"
         class="search-input"
-        placeholder="Stash search (LEFT JOIN, GROUP BY, DBI, odbc, CTE)..."
+        placeholder="Forage the stash (LEFT JOIN, GROUP BY, DBI, odbc, CTE)..."
         autocomplete="off"
       />
     </div>
@@ -57,7 +58,7 @@
     <main id="main-content" class="main-content"></main>
   </div>
 
-  <div id="toast" class="toast">Copied to clipboard</div>
+  <div id="toast" class="toast">🌰 Stashed snippet to clipboard!</div>
 
   <script src="./src/data/sqlReferenceData.js"></script>
   <script src="./src/app.js"></script>
