@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pocket SQRL — SQL Quick Reference &amp; R Lookup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles/main.css" />
+</head>
+<body>
+  <!-- Sticky Top Navigation Bar -->
+  <header class="topbar">
+    <div class="brand" onclick="window.setPage('quickref')" title="Pocket SQRL: SQL Quick Reference &amp; R Lookup">
+      <span class="brand-badge">🐿️ SQ<span class="brand-r">R</span>L</span>
+      <div class="brand-text">
+        <span class="brand-main">Pocket SQRL</span>
+        <span class="brand-sub"><strong>S</strong>QL <strong>Q</strong>uick <strong>R</strong>eference &amp; <strong>L</strong>ookup (SQL + R)</span>
+      </div>
+    </div>
+
+    <div class="page-tabs">
+      <button id="page-btn-quickref" class="page-tab-btn active" onclick="window.setPage('quickref')">
+        ⚡ Command Quick Reference
+      </button>
+      <button id="page-btn-overview" class="page-tab-btn" onclick="window.setPage('overview')">
+        📘 Writing &amp; Structuring SQL
+      </button>
+      <button id="page-btn-rtools" class="page-tab-btn" onclick="window.setPage('rtools')">
+        🔌 R Connections &amp; DB Tools
+      </button>
+    </div>
+
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input
+        id="search-input"
+        type="search"
+        class="search-input"
+        placeholder="Stash search (LEFT JOIN, GROUP BY, DBI, odbc, CTE)..."
+        autocomplete="off"
+      />
+    </div>
+
+    <div class="top-actions">
+      <button id="r-compare-btn" class="theme-btn r-toggle-btn" onclick="window.toggleRCompare()">
+        🔄 Compare with R (tidyverse)
+      </button>
+      <button id="theme-btn" class="theme-btn" onclick="window.toggleTheme()">☀️ Light</button>
+    </div>
+  </header>
+
+  <!-- 2-Column Layout: Table of Contents + Main Content -->
+  <div class="layout">
+    <aside id="toc-sidebar" class="toc-sidebar"></aside>
+    <main id="main-content" class="main-content"></main>
+  </div>
+
+  <div id="toast" class="toast">Copied to clipboard</div>
+
+  <script src="./src/data/sqlReferenceData.js"></script>
+  <script src="./src/app.js"></script>
+</body>
+</html>
